@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Sign In{% endblock %}
+
+{% block content%}
+<div style="width: 450px; margin:0 auto; padding:10px;">
+    <h2>Forget Password</h2>
+    <form method="POST" action=http://127.0.0.1:8000/PMS/reset_password/ enctype="multipart/form-data">
+         {% csrf_token %}
+         {% comment %} <label for=email>Email Id:</label> {% endcomment %}
+        {% comment %} <input type="email"name="email"> {% endcomment %}
+        {{ form|crispy}}
+
+         <br>
+     <br> 
+         <button type="submit" class="btn btn-primary"> Send</button>
+    </form>
+</div>
+{%endblock%}

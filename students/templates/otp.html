@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}OTP VARIFICATION{% endblock %}
+
+{% block content%}
+<div style="width: 450px; margin:0 auto; padding:10px;">
+    <h2>Sign In forms</h2>
+    <form method="POST" action="/PMS/otp_varification/{{email}}" >
+         {% csrf_token %}
+         <label for=otp>OTP:</label>
+         {{email}}
+        <input type="number"name="otp">
+         <br> <br>  
+         <input type="submit" class="btn btn-primary"> sign In</input>
+    </form>
+</div>
+{%endblock%}

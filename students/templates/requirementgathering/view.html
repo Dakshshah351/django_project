@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Category{% endblock %}
+{% load static %}
+
+{% block content%}
+<br><br><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="http://127.0.0.1:8000/PMS/admin"><img src="{% static 'back-button.png'%}" height="30px" alt="BACK"></img></a>
+<div style="width: 450px; margin:0 auto; padding:10px;">
+    
+    <h2>Client's Info</h2>
+    <td><a class="btn btn-primary" href="http://localhost:8000/PMS/RequirementGathering">Add Project</a>&nbsp&nbsp&nbsp
+    <td><a class="btn btn-primary" href="http://localhost:8000/PMS/bulkUpload">Bulk Upload</a>
+       
+</div>
+<div class="card-body">
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Client's Name</th>
+                <th>Project Title</th>
+                <th>Prefer Technology</th>
+                <th>Project Description</th>
+
+                <th>Start Date</th>
+                <th>Client's Email</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in viewGathering%}
+            <tr>
+                <td>{{data.Client_name}}</td>
+                <td>{{data.project_title}}</td>
+                <td>{{data.project_Technology}}</td>
+                <td>{{data.project_Description}}</td>
+
+                <td>{{data.start_date}}</td>
+                <td>{{data.Client_email}}</td>
+
+                <td><a class="btn btn-primary" href="http://localhost:8000/PMS/{{data.id}}/delete">Delete</a>
+                    <a class="btn btn-primary" href="http://localhost:8000/PMS/{{data.id}}/update">Update</a></td>
+    
+            </tr>
+            {%endfor%}
+        
+        </tbody>
+    </table>
+</div>
+
+            {%endblock%}

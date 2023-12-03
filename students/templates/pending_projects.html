@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Your Portfolio{% endblock %}
+{% load static %}
+{% block content%}
+<br>
+<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="http://127.0.0.1:8000/PMS/home"><img src="{% static 'back-button.png'%}" height="30px" alt="BACK"></img></a>
+<div style="width: 450px; margin:0 auto; padding:10px;">
+    <h2>Your Portfolio</h2>
+</div>
+<div class="card-body">
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Project Title</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in projects%}
+            <tr>
+                <td>{{data.Client_name}}</td>
+                <td>{{data.project_title}}</td>
+                <td>{{data.Client_email}}</td>
+                {% if cur_date|date:"Y-m-d H:i:s" < data.DEVdeadline|date:"Y-m-d H:i:s"%}
+                <!-- Do something if current_datetime is greater than comparison_datetime -->
+                <td><a class="btn btn-primary" href="http://127.0.0.1:8000/PMS/add_Projects/{{data.project_title}}">Upload Project</a><td>
+
+            {% else %}
+                <!-- Do something else if current_datetime is not greater than comparison_datetime -->
+            {% endif %}
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+     {%endblock%}

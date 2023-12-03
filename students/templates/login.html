@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Sign In{% endblock %}
+
+{% block content%}
+<div style="width: 450px; margin:0 auto; padding:10px;">
+    <h2>Sign In forms</h2>
+    <form method="POST" enctype="multipart/form-data">
+         {% csrf_token %}
+         {{ form|crispy}}
+         <a style="text-decoration:none;color:blue" href="http://127.0.0.1:8000/PMS/forget_password/">Forget Password</a>
+         <br> <br>  
+         <button type="submit" class="btn btn-primary"> sign In</button>
+    </form>
+</div>
+{%endblock%}

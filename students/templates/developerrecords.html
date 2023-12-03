@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Category{% endblock %}
+{% load static %}
+
+{% block content%}
+<br><br><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="http://127.0.0.1:8000/PMS/leader"><img src="{% static 'back-button.png'%}" height="30px" alt="BACK"></img></a>
+<div style="width: 450px; margin:0 auto; padding:10px;">
+    <table id="example1" class="table table-bordered table-striped">
+   
+
+
+        <thead>
+            <tr>
+                <th>Dev's username</th>
+                <th>Dev's firstname</th>
+                <th>last name</th>
+                <th>email</th>
+            </tr>
+        </thead>
+            {% comment %} my_dict = {'key1': 'value1', 'key2': 'value2'} {% endcomment %}
+
+{% comment %} # Choose the key you want to modify {% endcomment %}
+
+
+{% comment %} {{data["AI"]}} {% endcomment %}
+    {{data}}
+{% for i in lenx %}
+{% for a in i %}
+       {{i}}         
+<tbody>
+    <tr>
+        {% comment %} <td>{{row.assigned_dev}}</td> {% endcomment %}
+        <td>{{a}}</td>
+        <td>{{i.first_name}}</td>
+        <td>{{i.last_name}}</td>  
+        <td>{{i.email}}</td>   
+        
+
+    </tr>
+    {%endfor%} 
+    {%endfor%} 
+
+
+</div>
+
+</tbody>
+
+
+    </table>
+    {% comment %}  ########################################################################################### {% endcomment %}
+ 
+
+            {%endblock%}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Update Project{% endblock %}
+
+{% block content%}
+<br>
+
+<div style="width: 450px; margin:0 auto; padding:10px;">
+    <h2>Update Project</h2>
+   
+</div>
+<div class="card-body">
+    
+<div class="main">
+    <!-- Create a Form -->
+    <form method="POST"enctype="multipart/form-data" data-ajax="false" >
+        <!-- Security token by Django -->
+        {% csrf_token %}
+ 
+        <!-- form as paragraph -->
+        {{ form.as_p }}
+ 
+        <input type="submit" value="Update">
+    </form>
+ 
+</div>
+</div>
+
+            {%endblock%}

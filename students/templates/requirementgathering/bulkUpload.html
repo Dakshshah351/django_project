@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Category{% endblock %}
+
+{% block content%}
+    <!-- Create a Form -->
+    <form action="{% url 'upload_csv' %}" method="POST" enctype="multipart/form-data">
+        <!-- Security token by Django -->
+        {% csrf_token %}
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<h1> Upload Csv File </h1><br><br>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="file" name="csv_file" required>
+        <button class="btn btn-primary">UPLOAD</button>
+    </form>
+
+ 
+
+            {%endblock%}

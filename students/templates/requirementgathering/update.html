@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Category{% endblock %}
+{% load static %}
+
+{% block content%}
+<br>
+
+<div style="width: 450px; margin:0 auto; padding:10px;">
+    <h2>update Category</h2>
+   
+</div>
+<div class="card-body">
+    
+<div class="main">
+    <!-- Create a Form -->
+    <form method="POST">
+        <!-- Security token by Django -->
+        {% csrf_token %}
+ 
+        <!-- form as paragraph -->
+        {{ form.as_p }}
+ 
+        <input type="submit" value="Update">
+    </form>
+ 
+</div>
+</div>
+
+            {%endblock%}

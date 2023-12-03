@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}Category{% endblock %}
+{% load static %}
+
+{% block content%}
+<br><br><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="http://127.0.0.1:8000/PMS/viewGatheringbyleader"><img src="{% static 'back-button.png'%}" height="30px" alt="BACK"></img></a>
+<div style="width: 450px; margin:0 auto; padding:10px;">
+    
+    <h2>Developer Info</h2>
+    {% comment %} <a href="{% url 'download_csv' %}" class="btn btn-success"> CSV DOWNLOAD</a> {% endcomment %}
+
+</div>
+<div class="card-body">
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Developer First Name</th>
+                <th>Developer Last Name</th>
+                <th>Technology</th>
+                <th>Developer Email</th>
+                <th>Assigned Project</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+           
+
+            {% for data in category%}
+            
+            <tr>
+                <td>{{data.first_name}}</td>
+                <td>{{data.last_name}}</td>
+                <td>{{data.technology}}</td>
+                <td>{{data.email}}</td>
+                {% comment %} {% if data.assigned %} {% endcomment %}
+
+                                            <!--<td><button class="dropdown"><a href="http://127.0.0.1:8000/PMS/addCategory/">Add Member</a></button></td>&nbsp&nbsp&nbsp&nbsp-->
+                                            {% comment %} <td><button class="dropdown"><a href="http://127.0.0.1:8000/PMS/viewCategory/">View Member</a></button></td>&nbsp&nbsp&nbsp&nbsp {% endcomment %}
+                                            {% comment %} <td>{{data.}}</td><!--jene assign krelo hoy enu name--> {% endcomment %}
+
+
+                 <td><button class="btn btn-success"><a style="text-decoration:none;color:white" href="http://127.0.0.1:8000/PMS/assigned_dev/{{data.id}}/{{ids}}">Assign Developer</a></button></td>
+                                        
+                                            {% comment %} {%endif%} {% endcomment %}
+
+              
+            </tr>
+            {%endfor%}
+            {{successmsg}}
+        </tbody>
+    </table>
+</div>
+
+            {%endblock%}

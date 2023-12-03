@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}Category{% endblock %}
+{% load static %}
+
+{% block content%}
+<br><br><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="http://127.0.0.1:8000/PMS/leader"><img src="{% static 'back-button.png'%}" height="30px" alt="BACK"></img></a>
+<div style="width: 450px; margin:0 auto; padding:10px;">
+    
+    <h2>Client's Info</h2>
+    <a href="{% url 'download_csv' %}" style="text-decoration:none;color:lightbrown;"  class="btn btn-info"> CSV DOWNLOAD</a>
+
+</div>
+<div class="card-body">
+    
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th> Name</th>
+                <th>Project Title</th>
+                <th>Start Date</th>
+                <th> Email</th>
+                <th> Requirements</th>
+
+                <th>Assign Project</th>
+                <th>Download Project</th>
+                <th>Review Project</th>
+                <th>Accept Project</th>
+
+            </tr>
+        </thead>
+        <tbody><p align="center"style="color:green">  {{successmsg}}</p>
+            <p align="center"style="color:red">  {{errormsg}}</p>
+
+            {% for data in viewGathering%}
+            <tr>
+                <td>{{data.Client_name}}</td>
+                <td>{{data.project_title}}</td>
+                <td>{{data.start_date}}</td>
+                <td>{{data.Client_email}}</td>
+                <td>{{data.project_Description}}</td>
+
+                {% comment %} {% if data.assigned %} {% endcomment %}
+
+                                            <!--<td><button class="dropdown"><a href="http://127.0.0.1:8000/PMS/addCategory/">Add Member</a></button></td>&nbsp&nbsp&nbsp&nbsp-->
+                                            {% comment %} <td><button class="dropdown"><a href="http://127.0.0.1:8000/PMS/viewCategory/">View Member</a></button></td>&nbsp&nbsp&nbsp&nbsp {% endcomment %}
+                                            {% comment %} <td>{{data.}}</td><!--jene assign krelo hoy enu name--> {% endcomment %}
+
+                                            {% comment %} {%else%} {% endcomment %}
+                                            <td><button class="dropdown"><a  style="text-decoration:none;color:lightbrown"  href="http://127.0.0.1:8000/PMS/assign_dev/{{data.id}}">Assign Developer</a></button><td>
+                                            <button class="dropdown"><a  style="text-decoration:none;color:lightbrown"  href="http://127.0.0.1:8000/PMS/{{data.project_title}}/download-zip/">Download Project</a></button><td>
+                                            <button class="dropdown"><a  style="text-decoration:none;color:lightbrown" href="http://127.0.0.1:8000/PMS/review_project/{{data.project_title}}">Review Project</a></button></td>&nbsp&nbsp&nbsp&nbsp
+                                            <td><button class="dropdown"><a  style="text-decoration:none;color:lightbrown" href="http://127.0.0.1:8000/PMS/accept_project/{{data.project_title}}">Accept Project</a></button></td>&nbsp&nbsp&nbsp&nbsp
+
+                                        </td>
+
+                                            {% comment %} {%endif%} {% endcomment %}
+
+              
+            </tr>
+            {%endfor%}
+        
+        </tbody>
+    </table>
+</div>
+
+            {%endblock%}
